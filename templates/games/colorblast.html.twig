@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('games/css/colorblast.css') }}">
+{% endblock %}
+
+
+{% block body %}
+    <div class="container">
+        <div class="game-wrap">
+            <canvas width="960px" height="540" id="game"></canvas>
+            <article class="content">
+                <h1 class="title"><span>P</span><span>e</span><span>p</span><span>p</span><span>e</span><span>r</span> <span>B</span><span>l</span><span>a</span><span>s</span><span>t</span></h1>
+
+                <p>Utilise les flèches <code>Gauche</code> et <code>Droite</code> ou les touches <code>A</code> et <code>D</code> pour bouger et <code>Barre d'espace</code> pour tirer.</p>
+
+                <p>Clique dans le jeu pour mettre sur pause</p>
+            </article>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scoreboard %}
+    {{ render(controller(
+        'App\\Controller\\ScoreController::scoreboard',
+        {'gameName': 'colorblast', 'position': 'large-bottom'}
+    )) }}
+{% endblock %}
+
+{% block javascripts_footer %}
+    <script src="{{ asset('games/js/score.js') }}"></script>
+    <script src="{{ asset('games/js/colorblast.js') }}"></script>
+{% endblock %}

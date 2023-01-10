@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('games/css/towerblocks.css') }}">
+{% endblock %}
+
+
+{% block scoreboard %}
+    {{ render(controller(
+        'App\\Controller\\ScoreController::scoreboard',
+        {'gameName': 'towerblocks'}
+    )) }}
+{% endblock %}
+
+{% block body %}
+    <div id="container">
+        <div id="game"></div>
+        <div id="score">0</div>
+        <div id="instructions">Clique ou barre d'espace pour placer un bloc</div>
+        <div class="game-over">
+            <h2>Pepper perdu</h2>
+            <p>Clique ou barre d'espace pour recommencer</p>
+        </div>
+        <div class="game-ready">
+            <div id="start-button">Commencer</div>
+            <div></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts_footer %}
+    <script src="{{ asset('games/js/score.js') }}"></script>
+    <script src="{{ asset('games/js/towerblocks.js') }}"></script>
+{% endblock %}

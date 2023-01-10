@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="wrapper">
+        <h1 class="words">
+            <span>Pepper</span>
+            <span>Dev</span>
+        </h1>
+        <img class="nugget" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/77020/chicken-nugget.png">
+        <div class="words">
+            <span>GOLDEN</span>
+            <span>FRIED</span>
+            <span>CHICKEN</span>
+            <span>DELIGHTS</span>
+        </div>
+        <div class="nugget-container">
+            {#
+            <a href="#">
+                <img class="nugget b game_btn" src="{{ asset('images/pacman.png') }}" >
+            </a>
+            #}
+            <a href="{{ path('game_towerblocks') }}">
+                <img class="nugget b game_btn" src="{{ asset('images/stack.png') }}" id="towerblocks">
+            </a>
+            <a href="{{ path('game_snake') }}">
+                <img class="nugget b game_btn" src="{{ asset('images/snake.png') }}" id="snake">
+            </a>
+            {#  
+            <a href="#">
+                <img class="nugget b game_btn" src="{{ asset('images/bomb.png') }}">
+            </a>
+            #}
+            <a href="{{ path('game_colorblast') }}">
+                <img class="nugget b game_btn" src="{{ asset('images/colorblast.png') }}">
+            </a>
+            <a href="{{ path('game_planetdefender') }}">
+                <img class="nugget b game_btn" src="{{ asset('images/planetdefender.png') }}">
+            </a>
+        </div>
+
+    </div>
+{% endblock %}

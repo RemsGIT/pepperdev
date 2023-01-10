@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+
+{% block flash %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            <script>
+                Swal.fire(
+                    'Inscription validée',
+                    'Tu peux maintenant te connecter',
+                    'success'
+                )
+            </script>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+
+{% block body %}
+    
+    <form action="{{ path('app_auth_login') }}" method="post">
+        <h3>Connexion</h3>
+        <label for="username">Nom d'utilisateur:</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}"/>
+        <br>
+        <label for="password">Mot de passe:</label>
+        <input type="password" id="password" name="_password"/>
+        
+        {# If you want to control the URL the user is redirected to on success
+         <input type="hidden" name="_target_path" value="/account"/> #}
+        
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+        <br>
+        <button type="submit">Se connecter</button>
+    </form>
+
+    <form action="{{ path('app_auth_handle_register') }}" method="post">
+        <h3>Inscription</h3>
+        <label for="username_r">Nom d'utilisateur</label>
+        <input type="text" id="username_r" name="username">
+        <br>
+        <label for="password">Mot de passe:</label>
+        <input type="password" id="password" name="password"/>
+        <br>
+        <button type="submit">S'inscrire</button>
+    </form>
+{% endblock %}

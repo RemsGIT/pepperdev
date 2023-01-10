@@ -1,0 +1,24 @@
+<div id="scoreboard" class="{{ position }}">
+    <div class="header">
+        <h3>Classement</h3>
+    </div>
+    <div class="scores">
+        <ul>
+            {% for score in scores %}
+                <li>
+                    <span class="img">
+                        {% if loop.index == 1 %}
+                            <img src="{{ asset('images/first.png') }}" alt="" class="medal">
+                        {% elseif loop.index == 2 %}
+                            <img src="{{ asset('images/sncd.png') }}" alt="" class="medal">
+                        {% elseif loop.index == 3 %}
+                            <img src="{{ asset('images/third.png') }}" alt="" class="medal">
+                        {% endif %}
+                    </span>
+                    <span class="score">{{ score.score }}</span>
+                    <span class="name">{{ score.user.username }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

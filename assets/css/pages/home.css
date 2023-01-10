@@ -1,0 +1,106 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+body {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    margin: 0;
+    font: 1.5rem/1 'Roboto', sans-serif;
+    text-align: center;
+    background-color: black;
+    color: #97939d;
+}
+
+.wrapper {
+    padding: 25px;
+}
+
+.nugget {
+    width: 200px;
+    padding-bottom: 10px;
+}
+
+.nugget:not(.b) {
+    animation: rotate 4s linear infinite;
+}
+
+.nugget-container {
+    margin-top: 50px;
+}
+.nugget.b{
+    width: 120px;
+    margin-left: 50px;
+    cursor: pointer;
+}
+.nugget.b:hover{
+    animation: tilt-shaking 0.15s infinite;
+}
+@keyframes rotate {
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+@keyframes tilt-shaking {
+    0% { transform: rotate(2deg); }
+    25% { transform: rotate(20deg); }
+    50% { transform: rotate(0); }
+    75% { transform: rotate(-20deg); }
+    100% { transform: rotate(2deg); }
+}
+
+.words {
+    margin: 20px 0;
+    font-family: 'Passion One', cursive;
+    font-size: 5rem;
+    text-transform: uppercase;
+}
+
+.words span {
+    text-shadow: 5px 5px 0 #ccc;
+}
+
+.words span{
+    animation-name: pop-word;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes pop-word {
+    to {
+        text-shadow:
+                5px 5px 0 yellow,
+                10px 10px 0 orange,
+                15px 15px 0 red,
+                20px 20px 0 brown;
+    }
+}
+
+.words span:nth-child(2) { animation-delay: 0.5s; }
+.words span:nth-child(3) { animation-delay: 1s; }
+.words span:nth-child(4) { animation-delay: 1.5s; }
+.words span:nth-child(5) { animation-delay: 2s; }
+
+.help {
+    color: #999;
+}
+
+/* cluck cluck font sizes bawk bagawk smaller screens */
+@media (max-width: 620px) {
+    body {
+        font-size: 1.25rem;
+    }
+
+    .words {
+        font-size: 3rem;
+    }
+}

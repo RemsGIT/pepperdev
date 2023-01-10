@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('games/css/snake.css') }}">
+{% endblock %}
+
+
+{% block scoreboard %}
+    {{ render(controller(
+        'App\\Controller\\ScoreController::scoreboard',
+        {'gameName': 'snake'}
+    )) }}
+{% endblock %}
+
+{% block body %}
+    <div class="container noselect">
+        <div class="wrapper">
+            <button id="replay">
+                <i class="fas fa-play"></i>
+                RELANCER
+            </button>
+            <div id="canvas">
+
+            </div>
+            <div id="ui">
+                <h2>SCORE
+                </h2>
+                <span id="score">00</span>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts_footer %}
+    <script src="{{ asset('games/js/score.js') }}"></script>
+    <script src="{{ asset('games/js/snake.js') }}"></script>
+{% endblock %}

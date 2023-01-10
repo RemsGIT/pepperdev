@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('games/css/planetdefender.css') }}">
+{% endblock %}
+
+
+{% block scoreboard %}
+    {{ render(controller(
+        'App\\Controller\\ScoreController::scoreboard',
+        {'gameName': 'planetdefender', 'position': 'top-right'}
+    )) }}
+{% endblock %}
+
+{% block body %}
+    <canvas id="canvas"></canvas>
+{% endblock %}
+
+{% block javascripts_footer %}
+    <script src="{{ asset('games/js/score.js') }}"></script>
+    <script src="{{ asset('games/js/planetdefender.js') }}"></script>
+{% endblock %}

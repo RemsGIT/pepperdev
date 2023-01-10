@@ -1,0 +1,6 @@
+@import 'pages/home.css';
+@import 'components/scoreboard.css';
+
+main {
+    position: relative;
+}
