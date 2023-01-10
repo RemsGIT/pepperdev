@@ -18,6 +18,7 @@ yarn-error.log
 /idea
 .DS_STORE
 /.deploy.sh
+/deploy.sh
 
 ###< symfony/webpack-encore-bundle ###
 
